@@ -7,7 +7,8 @@ export const handle = async ({ event, resolve }) => {
 
 	try {
 		if (event.locals.pb.authStore.isValid) {
-			await event.locals.pb.collection('users').authRefresh();
+			//! The authRefresh() is more secure but would log user out occasionaly.
+			// await event.locals.pb.collection('users').authRefresh();
 			event.locals.user = serializeNonPOJOs(event.locals.pb.authStore.model);
 		}
 	} catch (_) {
