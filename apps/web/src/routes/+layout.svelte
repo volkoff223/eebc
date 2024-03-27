@@ -18,7 +18,7 @@
 				</div>
 				<!--Buttons for user logged in-->
 			{:else}
-				{#if data.isAdmin}
+				{#if data.user.role == 'admin'}
 					<!--Buttons for admin user-->
 					<p>Admin</p>
 				{:else}
@@ -42,9 +42,6 @@
 						tabindex="0"
 						class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 					>
-						<li>
-							<a href="/my/orders" class="justify-between">My orders</a>
-						</li>
 						<li>
 							<a href="/my/settings">Settings</a>
 						</li>

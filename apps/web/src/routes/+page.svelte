@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="max-w-md">
 			<h1 class="mb-5 text-5xl font-bold">Hello there {data.user.name}</h1>
-			{#if data.user.isAdmin}
+			{#if data.user.role == 'admin'}
 				<div class="dropdown">
 					<div tabindex="0" role="button" class="btn m-1">Choose a center</div>
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -28,10 +28,12 @@
 						{/each}
 					</ul>
 				</div>
-			{:else}
+			{:else if data.user.role == 'director'}
 				<a href="/{data.user.center}">
 					<button class="btn btn-active btn-primary">Go to dashboard</button>
 				</a>
+			{:else}
+				<div />
 			{/if}
 		</div>
 	</div>
