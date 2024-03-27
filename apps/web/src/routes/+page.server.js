@@ -16,7 +16,7 @@ export const load = async ({ locals }) => {
 			}
 		};
 		return {
-			centers: getCenters()
+			centers: await getCenters()
 		};
 	}
 };

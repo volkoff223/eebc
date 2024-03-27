@@ -16,7 +16,11 @@ export const actions = {
 			// }
 		} catch (err) {
 			console.log('Error: ', err);
-			throw error(500, 'Something went wrong');
+			if (err.status == 0) {
+				throw error(400, 'Wrong username or password');
+			} else {
+				throw error(500, 'Something went wrong');
+			}
 		}
 
 		throw redirect(303, '/');
