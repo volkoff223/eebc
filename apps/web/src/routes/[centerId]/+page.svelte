@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
 	import { getImageURL } from '$lib/utils.js';
 	export let data;
 </script>
@@ -14,28 +15,35 @@
 			/>
 		</div>
 	</div>
-	<div class="stats shadow">
-		<div class="stat place-items-center">
-			<div class="stat-title">Missed Swipes</div>
-			<div class="stat-value">4</div>
-			<div class="stat-desc">From March 20th to March 27th</div>
-		</div>
 
-		<div class="stat place-items-center">
-			<div class="stat-title">Missed Swipes Percentage</div>
-			<div class="stat-value text-secondary">10%</div>
-			<div class="stat-desc text-secondary">↗︎ 2 (7%)</div>
-		</div>
-
-		<div class="stat place-items-center">
-			<div class="stat-title">Incomplete Swipes</div>
-			<div class="stat-value">2</div>
-			<div class="stat-desc">↘︎ 1 (3%)</div>
-		</div>
+	<div>
+		<h1 class="text-2xl font-bold mt-4">
+			{data.center.name} Immunization Report
+		</h1>
+		<form
+			action="?/updateReport"
+			method="POST"
+			class="flex flex-col space-y-2 w-full"
+			enctype="multipart/form-data"
+		>
+			<div class="form-control w-full max-w-lg">
+				<lable for="fileInput" class="lable font-medium pb-1">
+					<span class="lable-text">Update Report</span>
+				</lable>
+				<input
+					type="file"
+					class="file-input file-input-bordered file-input-primary w-full max-w-xs"
+					accept="*"
+					id="vax_record"
+					name="vax_record"
+				/>
+			</div>
+			<div class="w-full max-w-lg pt-3">
+				<button class="btn btn-primary max-w-lg" type="submit">Update Report</button>
+			</div>
+		</form>
 	</div>
-	<h1 class="text-2xl font-bold mt-4">
-		{data.center.name} Missed Swipe Report
-	</h1>
+
 	<div class="overflow-x-auto max-w-md">
 		<table class="table table-zebra">
 			<!-- head -->
