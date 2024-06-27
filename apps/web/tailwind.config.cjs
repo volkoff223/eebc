@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config}*/
 const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
 
-	daisyui: {
-		themes: ['winter']
-	},
+  daisyui: {
+    themes: ['business']
+  },
 
-	plugins: [require('daisyui')]
+  plugins: [require('daisyui')]
 };
 
 module.exports = config;
