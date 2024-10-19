@@ -1,12 +1,12 @@
 export const load = ({ locals }) => {
-	if (locals.user) {
-		return {
-			user: locals.user,
-			isAdmin: locals.user.role == 'admin'
-		};
-	}
-
-	return {
-		user: undefined
-	};
+  const addAdminTitle = () => {
+    if (locals.user) {
+      return locals.user;
+    } else {
+      return undefined;
+    }
+  };
+  return {
+    user: addAdminTitle()
+  };
 };
