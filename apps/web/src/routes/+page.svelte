@@ -28,6 +28,7 @@
             {/each}
           </ul>
         </div>
+        <a href="addCenter"><div class="btn m-1">Add a center</div></a>
       {:else if data.user.role == 'director'}
         <a href="/{data.user.center}">
           <button class="btn btn-active btn-primary">Go to dashboard</button>
