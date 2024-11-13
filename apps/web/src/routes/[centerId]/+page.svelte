@@ -1,8 +1,6 @@
 <script>
-  import SwipeTable from '$lib/components/SwipeTable.svelte';
-  import InfoCard from '$lib/components/InfoCard.svelte';
   export let data;
-  // access to .center .employees .students .centerDocs .employeeDocs .studentDocs
+  console.log(data.center.swipeReportText);
 </script>
 
 <div class="flex flex-col w-full mt-4">

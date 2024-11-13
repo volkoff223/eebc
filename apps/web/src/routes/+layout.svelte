@@ -8,7 +8,7 @@
 <div class="min-h-full">
   <nav class="navbar ba-base-100 border-b">
     <div class="flex-1">
-      <a href="/" class="btn btn-ghost normal-case text-xl">Care Hub</a>
+      <a href="/" class="btn btn-ghost normal-case text-xl">EEBC</a>
     </div>
     <div class="flex-none">
       <!--Buttons for user not logged in-->

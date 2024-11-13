@@ -18,8 +18,8 @@
         </label>
         <input
           type="file"
-          name="report"
-          id="report"
+          name="swipeReport"
+          id="swipeReport"
           class="file-input input-primary file-input-bordered w-full max-w-lg"
         />
 
