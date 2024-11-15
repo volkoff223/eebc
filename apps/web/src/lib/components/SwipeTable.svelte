@@ -48,9 +48,9 @@
         <th class="name">Name</th>
         {#each Object.entries(tblHeaders) as [key, value]}
           {#if new Date(value).getDay() === 0 || new Date(value).getDay() === 6}
-            <th class="weekend">weekend</th>
+            <th class="weekend"><button class="btn btn-sm btn-disabled">{value}</button></th>
           {:else}
-            <th class={key}>{value}</th>
+            <th class={key}><button class="btn btn-sm">{value}</button></th>
           {/if}
         {/each}
       </tr>
