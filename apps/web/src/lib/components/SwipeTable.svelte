@@ -39,9 +39,45 @@
     30: d('30'),
     31: d('31')
   };
+  const selectColumn = (e) => {
+    const columnNumber = e.target.parentElement.className;
+    let tableCells = document.getElementsByTagName('td'),
+      cellIndex = tableCells.length;
+    while (cellIndex--) {
+      tableCells[cellIndex].classList.remove('selected');
+    }
+    let tableHeaders = document.getElementsByTagName('th'),
+      headerIndex = tableHeaders.length;
+    while (headerIndex--) {
+      tableHeaders[headerIndex].classList.remove('selected');
+    }
+    let columnCollection = document.getElementsByClassName(columnNumber),
+      i = columnCollection.length;
+    while (i--) {
+      columnCollection[i].classList.toggle('selected');
+    }
+  };
+
+  const sendEmail = () => {
+    let namesCollection = document.getElementsByClassName('name'),
+      n = namesCollection.length;
+    let namesArr = [];
+    while (n--) {
+      namesArr.unshift(namesCollection[n].innerText.toLowerCase());
+    }
+    console.log(namesArr);
+    let selectedColumns = document.getElementsByClassName('selected'),
+      i = selectedColumns.length;
+    while (i--) {
+      if (selectedColumns[i].innerText === 'null') {
+        console.log(namesArr[i]);
+      }
+    }
+  };
 </script>
 
 <div>
+  <button on:click={sendEmail} class="btn btn-active btn-accent">Send Emails</button>
   <table id="table" class="table table-zebra">
     <thead>
       <tr>
@@ -50,7 +86,9 @@
           {#if new Date(value).getDay() === 0 || new Date(value).getDay() === 6}
             <th class="weekend"><button class="btn btn-sm btn-disabled">{value}</button></th>
           {:else}
-            <th class={key}><button class="btn btn-sm">{value}</button></th>
+            <th class="col{key}"
+              ><button on:click={selectColumn} class="btn btn-sm">{value}</button></th
+            >
           {/if}
         {/each}
       </tr>
@@ -65,7 +103,7 @@
           {/each}
           {#each Object.entries(row) as [key, value]}
             {#if key !== 'auth' && key !== '' && key !== 'pu' && key !== 'au' && key !== 'name'}
-              <td class={key}>{value}</td>
+              <td class="col{key}">{value}</td>
             {/if}
           {/each}
         </tr>
@@ -73,3 +111,9 @@
     </tbody>
   </table>
 </div>
+
+<style>
+  .selected {
+    @apply bg-primary;
+  }
+</style>
